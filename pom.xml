@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.yyj.platform</groupId>
+    <artifactId>platform</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+
+    <!--    groupId：项目组ID，项目坐标的核心元素-->
+    <!--    version：项目版本，项目坐标的核心因素-->
+    <!--    description：项目的描述信息-->
+    <!--    organization：项目的组织信息-->
+    <!--    inceptionYear：项目的创始年份-->
+    <!--    url：项目的URL地址-->
+    <!--    developers：项目的开发者信息-->
+    <!--    contributors：项目的贡献者信息-->
+    <!--    distributionManagement：项目的部署配置-->
+    <!--    issueManagement：项目的缺陷跟踪系统信息-->
+    <!--    ciManagement：项目的持续集成系统信息-->
+    <!--    scm：项目的版本控制系统西溪-->
+    <!--    malilingLists：项目的邮件列表信息-->
+    <!--    properties：自定义的Maven属性-->
+    <!--    dependencies：项目的依赖配置-->
+    <!--    dependencyManagement：项目的依赖管理配置-->
+    <!--    repositories：项目的仓库配置-->
+    <!--    build：包括项目的源码目录配置、输出目录配置、插件配置、插件管理配置等-->
+    <!--    reporting：包括项目的报告输出目录配置、报告插件配置等-->
+
+    <description>杨仪军个人平台建设</description>
+    <inceptionYear>2019.11.05</inceptionYear>
+    <url>https://github.com/yyijun/platform.git</url>
+    <developers>
+        <developer>
+            <id>1</id>
+            <name>杨仪军</name>
+            <email>1012293987@qq.com</email>
+            <roles>
+                <role>
+                    onwer
+                </role>
+            </roles>
+        </developer>
+    </developers>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <scala.binary.version>2.11</scala.binary.version>
+        <scala.version>2.11.8</scala.version>
+        <spark.version>2.1.0</spark.version>
+        <hive.version>1.1.0-cdh5.7.0</hive.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <!-- 这是个编译java代码的 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- 这是个编译scala代码的 -->
+            <plugin>
+                <groupId>org.scala-tools</groupId>
+                <artifactId>maven-scala-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <scalaVersion>${scala.version}</scalaVersion>
+                    <args>
+                        <arg>-target:jvm-1.8</arg>
+                    </args>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>aliyun</id>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+        </repository>
+        <repository>
+            <id>spring-releases</id>
+            <url>http://repo.spring.io/libs-release</url>
+        </repository>
+        <repository>
+            <id>cloudera.repos</id>
+            <url>https://repository.cloudera.com/content/groups/cdh-releases-rcs</url>
+            <name>Cloudera Public Repositories</name>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>cloudera.snapshots.repo</id>
+            <url>https://repository.cloudera.com/content/repositories/snapshots</url>
+            <name>Cloudera Snapshots Repository</name>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>cloudera</id>
+            <url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
+        </repository>
+        <repository>
+            <id>cloudera.public.repo</id>
+            <url>https://repository.cloudera.com/artifactory/public</url>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <url>http://mvn.sz.haizhi.com/nexus/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <url>http://mvn.sz.haizhi.com/nexus/content/repositories/releases</url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>
