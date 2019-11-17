@@ -1,6 +1,6 @@
 package com.yyj.platform.common.util
 
-import com.haizhi.alg.common.base.log.LogFactory
+import com.yyj.platform.common.log.LogFactory
 import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
 
 /**

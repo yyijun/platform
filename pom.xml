@@ -11,6 +11,10 @@
 
     <modules>
         <module>platform-common</module>
+        <module>platform-spark</module>
+        <module>platform-hbase</module>
+        <module>platform-es</module>
+        <module>platform-kafka</module>
     </modules>
 
     <!--    groupId：项目组ID，项目坐标的核心元素-->

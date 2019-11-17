@@ -19,10 +19,13 @@
 
 # 2.模块规划
     |-platform
-        |-platform-common-base
-            |-com.yyj.platform.common.base
-        |-platform-common-core
-            |-com.yyj.platform.common.core
+        |-platform-common
+            |-com.yyj.platform.common.util
+            |-com.yyj.platform.common.log
+        |-platform-es
+        |-platform-hbase
+        |-platform-kafka
+        |-platform-spark
 
 # 3.GIT版本规划
 ## 3.1.版本结构说明：A.B.C
