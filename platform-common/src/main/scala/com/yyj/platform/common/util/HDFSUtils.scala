@@ -13,7 +13,7 @@ import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 import scala.util.control.Breaks._
 
 /**
-  * Created by zhoujiamu on 2017/8/23.
+  * Created by yangyijun on 2019/8/23.
   */
 
 object HDFSUtils {
