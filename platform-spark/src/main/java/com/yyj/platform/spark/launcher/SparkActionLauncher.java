@@ -1,4 +1,4 @@
-package com.yyj.platform.common.launcher;
+package com.yyj.platform.spark.launcher;
 
 import com.alibaba.fastjson.JSON;
 import com.yyj.platform.common.log.Log;

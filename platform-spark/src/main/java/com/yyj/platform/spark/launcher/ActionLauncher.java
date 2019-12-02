@@ -1,4 +1,4 @@
-package com.yyj.platform.common.launcher;
+package com.yyj.platform.spark.launcher;
 
 /**
  * Created by yangyijun on 2019/5/20.

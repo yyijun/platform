@@ -1,4 +1,4 @@
-package com.yyj.platform.common.launcher;
+package com.yyj.platform.spark.launcher;
 
 import java.io.BufferedReader;
 import java.io.IOException;

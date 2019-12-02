@@ -1,6 +1,7 @@
-package com.yyj.platform.common.util
+package com.yyj.platform.spark.util
 
 import com.yyj.platform.common.log.LogFactory
+import com.yyj.platform.common.util.HDFSUtils
 import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
 
 /**
