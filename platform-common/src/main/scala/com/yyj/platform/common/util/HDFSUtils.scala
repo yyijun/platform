@@ -2,8 +2,6 @@ package com.yyj.platform.common.util
 
 import java.io._
 
-import com.haizhi.alg.common.base.log.LogFactory
-import com.haizhi.alg.common.base.util.JValueUtils
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.{FileSystem, _}
 import org.apache.spark.SparkContext

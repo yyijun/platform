@@ -2,9 +2,6 @@ package com.yyj.platform.common.util
 
 import java.io.IOException
 
-import com.haizhi.alg.common.base.key.RowKeyGetter
-import com.haizhi.alg.common.base.log.LogFactory
-import com.haizhi.alg.common.base.util.BaseUtils._
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.hbase._
 import org.apache.hadoop.hbase.client._
