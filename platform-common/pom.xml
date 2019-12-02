@@ -102,6 +102,7 @@
         <dependency>
             <groupId>org.apache.hbase</groupId>
             <artifactId>hbase-spark</artifactId>
+            <version>1.2.0-cdh5.7.0</version>
             <exclusions>
                 <!--以下包会冲突-->
                 <!--hadoop-core-2.6.0-mr1-cdh5.7.0.jar-->

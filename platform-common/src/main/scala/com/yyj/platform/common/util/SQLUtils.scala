@@ -3,7 +3,7 @@ package com.yyj.platform.common.util
 import java.io.StringReader
 import java.util.regex.{Matcher, Pattern}
 
-import com.haizhi.alg.common.base.log.LogFactory
+import com.yyj.platform.common.log.LogFactory
 import net.sf.jsqlparser.JSQLParserException
 import net.sf.jsqlparser.expression.operators.arithmetic.{Addition, Division, Multiplication, Subtraction}
 import net.sf.jsqlparser.expression.operators.conditional.{AndExpression, OrExpression}

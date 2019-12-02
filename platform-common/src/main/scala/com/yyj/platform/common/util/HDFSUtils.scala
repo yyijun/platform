@@ -2,6 +2,7 @@ package com.yyj.platform.common.util
 
 import java.io._
 
+import com.yyj.platform.common.log.LogFactory
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.{FileSystem, _}
 import org.apache.spark.SparkContext

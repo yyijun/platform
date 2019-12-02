@@ -2,9 +2,11 @@ package com.yyj.platform.common.util
 
 import java.io.IOException
 
+import com.yyj.platform.common.key.RowKeyGetter
+import com.yyj.platform.common.log.LogFactory
 import org.apache.hadoop.conf.Configuration
-import org.apache.hadoop.hbase._
-import org.apache.hadoop.hbase.client._
+import org.apache.hadoop.hbase.{HBaseConfiguration, HColumnDescriptor, HConstants, HTableDescriptor, NamespaceDescriptor, TableName}
+import org.apache.hadoop.hbase.client.{BufferedMutatorParams, Connection, ConnectionFactory, Delete, Get, HBaseAdmin, Put, Result, Table}
 import org.apache.hadoop.hbase.io.ImmutableBytesWritable
 import org.apache.hadoop.hbase.mapreduce.TableInputFormat
 import org.apache.hadoop.hbase.util.Bytes
@@ -21,8 +23,8 @@ import scala.collection.mutable
 import scala.collection.mutable.{ArrayBuffer, HashMap}
 
 /**
-  * Created by yangyijun on 2019/8/18.
-  */
+ * Created by yangyijun on 2019/8/18.
+ */
 object HBaseUtils {
 
   val logger = LogFactory.getLogger(this.getClass)
@@ -38,7 +40,7 @@ object HBaseUtils {
     ConnectionFactory.createConnection(conf)
   }
 
-  def createDatabase(connection: Connection, database: String): Boolean= {
+  def createDatabase(connection: Connection, database: String): Boolean = {
     var success: Boolean = false
     var admin: HBaseAdmin = null
     try {
@@ -289,4 +291,11 @@ object HBaseUtils {
       }
     }
   }
+
+  def asString(obj: Any): String = {
+    if (obj != null & obj != None) obj.toString else ""
+  }
+
+  def bytes2String(byte: Array[Byte]): String = asString(Bytes.toString(byte))
+
 }
