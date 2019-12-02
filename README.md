@@ -22,19 +22,25 @@
         |-platform-common
             |-com.yyj.platform.common.util
             |-com.yyj.platform.common.log
+            |-com.yyj.platform.common.key
         |-platform-es
+            |-com.yyj.platform.es.util
         |-platform-hbase
+            |-com.yyj.platform.hbase.util
         |-platform-kafka
+            |-com.yyj.platform.kafka.util
         |-platform-spark
+            |-com.yyj.platform.spark.util
+            |-com.yyj.platform.spark.launcher
 
 # 3.GIT版本规划
 ## 3.1.版本结构说明：A.B.C
     A：大功能变更；
     B：添加新特性；
     C：BUG修复；
-## 3.2.样例
+## 3.2.分支类型
     |-master                           
-    |-1.0.0.release                    
+    |-release                    
     |-develop                          
     |-feature/yangyijun(git用户名称)    
     |-hotfix                           

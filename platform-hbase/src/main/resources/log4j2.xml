@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="OFF">
+    <properties>
+        <property name="logPath">${sys:user.dir}</property>
+    </properties>
+    <!--
+    fileName  指定当前日志文件的位置和文件名称
+    filePattern  指定当发生Rolling时，文件的转移和重命名规则
+    SizeBasedTriggeringPolicy  指定当文件体积大于size指定的值时，触发Rolling
+    DefaultRolloverStrategy  指定最多保存的文件个数
+    TimeBasedTriggeringPolicy  这个配置需要和filePattern结合使用，注意filePattern中配置的文件重命名规则是${log_path}/zcrTest%d{yyyy-MM-dd}.log，最小的时间粒度是dd，即分钟，TimeBasedTriggeringPolicy指定的size是1，结合起来就是每一天生成一个新文件。如果改成%d{yyyy-MM-dd HH}，最小粒度为小时，则每一个小时生成一个文件。-->
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss}]-[%p]-[%c:%L]-%m%n"/>
+        </Console>
+
+        <RollingFile name="INFO" fileName="${logPath}/logs/info/info.log" advertise="false"
+                     filePattern="${logPath}/logs/info/info-%d{yyyy-MM-dd-HH-mm}.log.gz">
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss}]-[%p]-[%c:%L]-%m%n"/>
+            <Filters>
+                <ThresholdFilter level="fatal" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="warn" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+            </Policies>
+            <DefaultRolloverStrategy max="1">
+                <Delete basePath="${logPath}/logs/info/" maxDepth="1">
+                    <IfFileName glob="*.log.gz"/>
+                    <IfLastModified age="4m"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+
+        <RollingFile name="WARN" fileName="${logPath}/logs/warn/warn.log" advertise="false"
+                     filePattern="${logPath}/logs/warn/warn-%d{yyyy-MM-dd-HH-mm}.log.gz">
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss}]-[%p]-[%c:%L]-%m%n"/>
+            <Filters>
+                <ThresholdFilter level="fatal" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <Policies>
+                <!--<SizeBasedTriggeringPolicy size="10MB"/>-->
+                <TimeBasedTriggeringPolicy interval="1"/>
+            </Policies>
+            <DefaultRolloverStrategy max="1">
+                <Delete basePath="${logPath}/logs/warn/" maxDepth="1">
+                    <IfFileName glob="*.log.gz"/>
+                    <IfLastModified age="4m"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+
+        <RollingFile name="ERROR" fileName="${logPath}/logs/error/error.log" advertise="false"
+                     filePattern="${logPath}/logs/error/error-%d{yyyy-MM-dd-HH-mm}.log">
+            <PatternLayout pattern="[%d{yyyy-MM-dd HH:mm:ss}]-[%p]-[%c:%L]-%m%n"/>
+            <Filters>
+                <ThresholdFilter level="fatal" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+            </Policies>
+            <DefaultRolloverStrategy max="1">
+                <Delete basePath="${logPath}/logs/error/" maxDepth="1">
+                    <IfFileName glob="*.log.gz"/>
+                    <IfLastModified age="4m"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="Console"/>
+        </Root>
+        <Logger name="com" additivity="false">
+            <AppenderRef ref="ERROR"/>
+            <AppenderRef ref="WARN"/>
+            <AppenderRef ref="INFO"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+    </Loggers>
+</Configuration>
