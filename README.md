@@ -36,10 +36,8 @@
     |-master                           
     |-1.0.0.release                    
     |-develop                          
-    |-test                             
     |-feature/yangyijun(git用户名称)    
     |-hotfix                           
-    |-fix                              
 
     # master
         最新稳定版本，只能由管理员进行合并最新release分枝到master分枝；
@@ -47,13 +45,7 @@
         发行稳定版本，每次发行版本需要合并到master分枝；
     # develop
         当前开发版本，各成员基于此分枝进行clone出各自的开发feature分枝，此分枝只允许合并操作，不允许直接在此分枝上进行开发；
-    # test
-        a.集成测试版本，集成测试通过后发布新的release分枝；
-        b.如果测试出现bug，则基于此test分枝创建一个fix分枝，单元测试通过后合并回此test分枝打包进行集成测试；
-          集成测试通过后发布release版本，并合并回develop分枝；各成员pull develop分枝代码，获取最新develop分枝代码；
     # feature
         各成员开发功能基于develop分枝创建各自的feature分枝，单元测试完成后合并到develop分枝；
     # hotfix    
-        紧急bug修复分支，在最新的release分支上创建。修复并单元测试完成后，基于此hotfix分枝创建test分枝进行集成测试，集成测试完成后发布新的release分枝；
-    # fix
-        bug修复分支，在test分支上创建，单元测试完成后合并到test分枝进行集成测试；
+        紧急bug修复分支，在最新的release分支上创建。
