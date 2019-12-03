@@ -59,3 +59,10 @@
         各成员开发功能基于develop分枝创建各自的feature分枝，单元测试完成后合并到develop分枝；
     # hotfix    
         紧急bug修复分支，在最新的release分支上创建。
+        
+# 4.模块错误码规划
+    |-platform-common       10000~11000
+    |-platform-es           11001~12000
+    |-platform-hbase        12001~13000
+    |-platform-kafka        13001~14000
+    |-platform-spark        14001~15000
