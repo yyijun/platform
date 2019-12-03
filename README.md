@@ -19,17 +19,17 @@
 
 # 2.模块目录规划
     |-platform                                          
-        |-platform-common
+        |-platform-common                               公共工具类封装模块
             |-com.yyj.platform.common.util
             |-com.yyj.platform.common.log
             |-com.yyj.platform.common.key
-        |-platform-es
+        |-platform-es                                   es相关功能封装模块
             |-com.yyj.platform.es.util
-        |-platform-hbase
+        |-platform-hbase                                hbase相关功能封装模块
             |-com.yyj.platform.hbase.util
-        |-platform-kafka
+        |-platform-kafka                                kafka相关功能封装模块
             |-com.yyj.platform.kafka.util
-        |-platform-spark
+        |-platform-spark                                spark相关功能封装模块
             |-com.yyj.platform.spark.util
             |-com.yyj.platform.spark.launcher
         |-docs                                          文档说明根目录
