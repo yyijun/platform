@@ -17,8 +17,8 @@
     #如果一切都没有问题，那就直接提交版本号
     mvn versions:commit
 
-# 2.模块规划
-    |-platform
+# 2.模块目录规划
+    |-platform                                          
         |-platform-common
             |-com.yyj.platform.common.util
             |-com.yyj.platform.common.log
@@ -32,7 +32,11 @@
         |-platform-spark
             |-com.yyj.platform.spark.util
             |-com.yyj.platform.spark.launcher
-
+        |-docs                                          文档说明根目录
+            |-platform-es                               es文档说明根目录
+            |-platform-hbase                            hbase文档说明根目录
+            |-platform-kafka                            kafka文档说明根目录
+            |-platform-spark                            spark文档说明根目录
 # 3.GIT版本规划
 ## 3.1.版本结构说明：A.B.C
     A：大功能变更；
