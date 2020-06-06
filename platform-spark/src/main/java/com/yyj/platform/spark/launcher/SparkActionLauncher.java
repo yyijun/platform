@@ -110,7 +110,7 @@ public class SparkActionLauncher extends ActionLauncher {
         launcher.setAppResource(conf.get(SparkConfig.APP_RESOURCE));
         //设置算法入口类保证包名称及类名，例：com.yyj.train.spark.launcher.TestSparkLauncher
         launcher.setMainClass(conf.get(SparkConfig.MAIN_CLASS));
-        //设置集群的master地址：yarn／spark standalone的master地址，例：spark://hadoop01.sz.haizhi.com:7077
+        //设置集群的master地址：yarn／spark standalone的master地址，例：spark://hadoop01.xxx.xxx.com:7077
         launcher.setMaster(conf.get(SparkConfig.MASTER));
         //设置部署模式：cluster（集群模式）／client（客户端模式）
         launcher.setDeployMode(conf.get(SparkConfig.DEPLOY_MODE));
